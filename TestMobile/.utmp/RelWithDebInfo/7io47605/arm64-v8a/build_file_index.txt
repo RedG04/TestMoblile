@@ -1,0 +1,2 @@
+C:\Users\diben\Documents\Unity\TestMobile\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\diben\Documents\Unity\TestMobile\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
