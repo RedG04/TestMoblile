@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,6 +88,12 @@ public class LevelManager : MonoBehaviour
             Instantiate(
                 IngredientPrefab
             );
+
+        // L'ingrediente diventa figlio dello Stack
+        ingredient.transform.SetParent(stack.transform);
+
+        // Lo posizioniamo al centro dello Stack
+        ingredient.transform.localPosition = Vector3.zero;
 
         ingredient.ingredientType =
             spawnData.IngredientType;

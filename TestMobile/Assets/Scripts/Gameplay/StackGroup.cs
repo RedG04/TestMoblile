@@ -98,11 +98,18 @@ public class StackGroup : MonoBehaviour
 
         foreach (Ingredient ingredient in movedIngredients)
         {
-            targetStack.Ingredients.Add(ingredient);
-            ingredient.CurrentStack = targetStack;
-        }
+            // Rimuove l'ingrediente dalla pila corrente
+            Ingredients.Remove(ingredient);
 
-        Ingredients.Clear();
+            // Lo aggiunge alla pila di destinazione
+            targetStack.Ingredients.Add(ingredient);
+
+            // Aggiorna il riferimento alla pila
+            ingredient.CurrentStack = targetStack;
+
+            // IMPORTANTE: cambia il padre nella gerarchia
+            ingredient.transform.SetParent(targetStack.transform);
+        }
 
         targetStack.UpdateVisualStack();
 

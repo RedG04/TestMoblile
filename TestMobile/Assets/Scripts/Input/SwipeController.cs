@@ -109,8 +109,10 @@ public class SwipeController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            selectedStack =
-                hit.collider.GetComponent<StackGroup>();
+            /*selectedStack =
+                hit.collider.GetComponent<StackGroup>();*/
+
+            selectedStack = hit.collider.GetComponentInParent<StackGroup>();
 
             if (selectedStack != null)
             {
