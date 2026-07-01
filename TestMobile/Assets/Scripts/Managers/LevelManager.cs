@@ -97,6 +97,7 @@ public class LevelManager : MonoBehaviour
 
         ingredient.ingredientType =
             spawnData.IngredientType;
+        ingredient.UpdateVisual();
 
         ingredient.GridPosition =
             spawnData.GridPosition;

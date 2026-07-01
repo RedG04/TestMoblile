@@ -109,9 +109,7 @@ public class MoveManager : MonoBehaviour
         // ELIMINO STACK VUOTA
         //------------------------------------------------
 
-        Destroy(
-            movingStack.gameObject
-        );
+        movingStack.gameObject.SetActive(false);
 
         //------------------------------------------------
         // SBLOCCO UI

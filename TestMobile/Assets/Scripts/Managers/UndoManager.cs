@@ -56,6 +56,9 @@ public class UndoManager : MonoBehaviour
 
             ingredient.CurrentStack =
                 move.SourceStack;
+            ingredient.transform.SetParent(
+                move.SourceStack.transform
+);
         }
 
         //------------------------------------------------
@@ -67,6 +70,16 @@ public class UndoManager : MonoBehaviour
         {
             ingredient.GridPosition =
                 move.SourcePosition;
+        }
+
+        Vector2Int targetPosition =
+    move.TargetStack.GridPosition;
+
+        foreach (Ingredient ingredient
+                 in move.TargetStack.Ingredients)
+        {
+            ingredient.GridPosition =
+                targetPosition;
         }
 
         //------------------------------------------------
@@ -117,6 +130,9 @@ public class UndoManager : MonoBehaviour
 
         RestoreSnapshot(initialSnapshot);
 
+        MoveManager.Instance.LastMove = null;
+
+        UIManager.Instance.HideVictoryPanel();
         UIManager.Instance.DisableUndo();
         UIManager.Instance.DisableReset();
     }
@@ -193,6 +209,10 @@ public class UndoManager : MonoBehaviour
                 stack.Ingredients.Add(
                     ingredient
                 );
+
+                ingredient.transform.SetParent(
+                    stack.transform
+);
             }
 
             GridManager.Instance.RegisterStack(

@@ -102,6 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientType: 0
   GridPosition: {x: 0, y: 0}
+  breadMaterial: {fileID: 2100000, guid: 76692f6d2ca3f544590041eca56dbcbd, type: 2}
+  cheeseMaterial: {fileID: 2100000, guid: 510f046a4ddb56343bd4c12c71ff9a73, type: 2}
+  hamMaterial: {fileID: 2100000, guid: 5a10927459642b24d8d89ebab581c1d9, type: 2}
+  tomatoMaterial: {fileID: 2100000, guid: c5962393322670a47861ce7125b79f20, type: 2}
   CurrentStack: {fileID: 0}
   InitialGridPosition: {x: 0, y: 0}
 --- !u!65 &5930330018778242592

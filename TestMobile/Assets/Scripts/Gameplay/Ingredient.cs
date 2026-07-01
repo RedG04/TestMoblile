@@ -20,6 +20,12 @@ public class Ingredient : MonoBehaviour
     [Header("Posizione nella griglia")]
     public Vector2Int GridPosition;
 
+    [Header("Materiali ingredienti")]
+    public Material breadMaterial;
+    public Material cheeseMaterial;
+    public Material hamMaterial;
+    public Material tomatoMaterial;
+
     /// Pila a cui appartiene attualmente l'ingrediente.
     [HideInInspector]
     public StackGroup CurrentStack;
@@ -27,6 +33,39 @@ public class Ingredient : MonoBehaviour
     /// Posizione iniziale salvata per il Reset.
     [HideInInspector]
     public Vector2Int InitialGridPosition;
+
+    private void Start()
+    {
+        UpdateVisual();
+    }
+
+    public void UpdateVisual()
+    {
+        MeshRenderer meshRenderer =
+            GetComponent<MeshRenderer>();
+
+        if (meshRenderer == null)
+            return;
+
+        switch (ingredientType)
+        {
+            case IngredientType.Bread:
+                meshRenderer.material = breadMaterial;
+                break;
+
+            case IngredientType.Cheese:
+                meshRenderer.material = cheeseMaterial;
+                break;
+
+            case IngredientType.Ham:
+                meshRenderer.material = hamMaterial;
+                break;
+
+            case IngredientType.Tomato:
+                meshRenderer.material = tomatoMaterial;
+                break;
+        }
+    }
 
     /// Salva la posizione iniziale.
     /// Chiamata all'inizio del livello.

@@ -80,11 +80,21 @@ public class StackGroup : MonoBehaviour
         {
             Ingredient ingredient = Ingredients[i];
 
+            float offsetX =
+                (i % 2 == 0) ? 0.08f : -0.08f;
+
+            float offsetZ =
+                (i % 3 == 0) ? 0.05f : -0.05f;
+
             Vector3 position =
                 transform.position +
-                Vector3.up * (sliceHeight * i);
+                Vector3.up * (sliceHeight * i) +
+                new Vector3(offsetX, 0f, offsetZ);
 
             ingredient.transform.position = position;
+
+            ingredient.transform.rotation =
+                Quaternion.Euler(0f, i * 8f, 0f);
         }
     }
 
@@ -106,6 +116,7 @@ public class StackGroup : MonoBehaviour
 
             // Aggiorna il riferimento alla pila
             ingredient.CurrentStack = targetStack;
+            ingredient.GridPosition = targetStack.GridPosition;
 
             // IMPORTANTE: cambia il padre nella gerarchia
             ingredient.transform.SetParent(targetStack.transform);
