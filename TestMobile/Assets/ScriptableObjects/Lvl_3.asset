@@ -20,4 +20,4 @@ MonoBehaviour:
   - IngredientType: 0
     GridPosition: {x: 1, y: 1}
   - IngredientType: 3
-    GridPosition: {x: 1, y: 2}
+    GridPosition: {x: 0, y: 0}
